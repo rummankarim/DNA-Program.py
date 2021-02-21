@@ -1,31 +1,34 @@
 #Rumman-Al-Karim
-#November 3,2017
 #This program allows the user to enter a dna string 
+def comp_dna(dna):
+    """
+    A <-> T   &  C <-> G
 
+    Output: [('A', 'T'), ('C', 'G'), etc...]
+    """
 
-DNA = str(input("Enter a DNA string: "))
+    {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'} 
 
-comp = ""
+    if type(dna) == list: 
+        dna = ''.join(dna)
+    
+    dna = dna.upper()
+    helix = [] 
+    str2 = '' 
 
-for i in DNA:
-  
-  if (i == "A"):
-    
-    comp += "T"
-  elif (i == "C"):
-    
-    comp += "G"
-  elif (i == "G"):
-    
-    comp += "C"
-  elif (i == "T"):
-    
-    comp += "A"
-    
-  else:
-    print("Please input  valid DNA string")
+    for i in dna: 
+        helix.append((i, convs[i])) 
+        str2 += i
+
+    return helix, str2 
   
   
+dna = [('CTTAGTTC'),('GGGTAACCT')] 
+# [('C', 'G'), ('T', 'A'), ('T', 'A'), ('A', 'T'), ('G', 'C'), ('T', 'A'), ('T', 'A'), ('C', 'G')]
 
-    
-print("The com..", comp)
+
+
+dna = list(dna)  
+str2, helix = comp_dna(dna)
+print(helix)
+print(str2)
